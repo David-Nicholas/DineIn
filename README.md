@@ -4,6 +4,5 @@ DineIn redefineste experienta rezervarilor in restaurantele din Timisoara printr
 
 Tools:
 Front-end React.js
-Back-end: Node.js
-Data-base: MangoDB
+Back-end: Spring Boot
 Maps:  Google Maps API / Mapbox API / Altul
