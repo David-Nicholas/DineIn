@@ -6,3 +6,6 @@ Tools:
 Front-end React.js
 Back-end: Spring Boot
 Maps:  Google Maps API / Mapbox API / Altul
+
+
+Wireframe: https://www.figma.com/file/IfYYazn0JdmrxWFA2TkZMW/WireFrame?type=design&node-id=0%3A1&mode=design&t=bE6NBbCHylY2gfVb-1
