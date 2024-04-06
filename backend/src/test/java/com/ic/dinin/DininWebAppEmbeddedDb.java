@@ -1,19 +1,22 @@
 package com.ic.dinin;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
-public class DininApplication {
+public class DininWebAppEmbeddedDb {
+
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder()
-				.sources(DininApplication.class)
+				.sources(DininWebAppEmbeddedDb.class)
 				.profiles(
-						SpringProfiles.PROD
+						SpringProfiles.DEV,
+						SpringProfiles.EMBEDDED_DB_H2,
+						SpringProfiles.TEST_DATA_SEED
 				)
 				.run(args);
 	}
 
 }
+

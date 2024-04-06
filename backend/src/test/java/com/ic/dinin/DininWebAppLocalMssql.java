@@ -1,19 +1,20 @@
 package com.ic.dinin;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
-public class DininApplication {
+public class DininWebAppLocalMssql {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder()
-				.sources(DininApplication.class)
+				.sources(DininWebAppLocalMssql.class)
 				.profiles(
-						SpringProfiles.PROD
+						SpringProfiles.DEV,
+						SpringProfiles.LOCAL_MS_SQL
 				)
 				.run(args);
 	}
 
 }
+
