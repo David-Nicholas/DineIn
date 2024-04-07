@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider theme={DineInTheme}>
-      <Navbar></Navbar>
+      <Navbar/>
         {children}
     </ThemeProvider>
   );
