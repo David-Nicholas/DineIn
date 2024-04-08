@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from '@mui/material';
+import Link from 'next/link';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
 
 const pages = ['Restaurants', 'Contact'];
@@ -38,11 +38,14 @@ function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Link href="/" underline="none" sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+        <Link href="/">
+        <Typography sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
             <DinnerDiningIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-            <Typography
+            <Typography 
               variant="h6"
               noWrap
+              component="a"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -52,6 +55,7 @@ function Navbar() {
               }}
             >
               DineIn
+            </Typography>
             </Typography>
           </Link>
 
@@ -85,7 +89,7 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <Link key={page} href={page === 'Restaurants' ? '/restaurants/list' : '/contact'} underline="none">
+                <Link key={page} href={page === 'Restaurants' ? '/restaurants/list' : '/contact'}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
@@ -116,7 +120,7 @@ function Navbar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link key={page} href={page === 'Restaurants' ? '/restaurants/list' : '/contact'} underline="none" sx={{ marginRight: '10px' }}>
+              <Link key={page} href={page === 'Restaurants' ? '/restaurants/list' : '/contact'}>
                 <Button onClick={handleCloseNavMenu} sx={{ color: 'white' }}>
                   {page}
                 </Button>
