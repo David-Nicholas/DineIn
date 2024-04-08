@@ -3,6 +3,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import Link from '@mui/material/Link';
+import { DineInTheme } from "@/utils/theme";
 
 export const Footer: FC = (): ReactElement => {
   return (
@@ -10,7 +11,7 @@ export const Footer: FC = (): ReactElement => {
       sx={{
         width: "100%",
         height: "auto",
-        backgroundColor: "#2074d4",
+        backgroundColor: DineInTheme.palette.primary.main,
         paddingTop: "1rem",
         paddingBottom: "1rem",
       }}

@@ -1,15 +1,19 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import Link from 'next/link';
 
 type CustomButtonProps = {
   text: string;
+  route: string;
 }
 
-const CustomButton = ({ text }: CustomButtonProps) => {
+const CustomButton = ({ text, route }: CustomButtonProps) => {
   return (
-    <Button variant="contained" disableElevation>
-      {text}
-    </Button>
+    <Link href={route} passHref>
+      <Button variant="contained" disableElevation>
+        {text}
+      </Button>
+    </Link>
   );
 }
 
