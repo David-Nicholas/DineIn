@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,6 +13,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import { useRouter } from 'next/navigation';
 
 const pages = ['Restaurants', 'Contact'];
 
@@ -34,18 +37,18 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const router = useRouter()
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <Link href="/front-end/public">
-        <Typography sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }}>
             <DinnerDiningIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
             <Typography 
               variant="h6"
               noWrap
-              component="a"
-              href="/"
+              onClick={()=>router.push("/")}
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -56,8 +59,7 @@ function Navbar() {
             >
               DineIn
             </Typography>
-            </Typography>
-          </Link>
+          </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
