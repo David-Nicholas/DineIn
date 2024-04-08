@@ -1,11 +1,25 @@
-"use client";
-
 import CustomButton from "@/components/moleculas/CustomButton";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import ConstructionIcon from '@mui/icons-material/Construction';
 
-export default function Page() {
+async function getRestaurants() {
+  const res = await fetch('http://localhost:8080/restaurants')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
+export default async function Page() {
+  const data = await getRestaurants()
+  console.log(data);
+
   return (
     <Box sx={{
       display: 'flex',

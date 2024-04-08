@@ -1,5 +1,3 @@
-"use client";
-
 import CustomButton from "@/components/moleculas/CustomButton";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';

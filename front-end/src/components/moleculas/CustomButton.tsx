@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import { useRouter } from 'next/navigation'
+import Link from 'next/link';
 
 type CustomButtonProps = {
   text: string;
@@ -9,12 +9,12 @@ type CustomButtonProps = {
 
 const CustomButton = ({ text, route }: CustomButtonProps) => {
 
-  const router = useRouter()
-
   return (
-    <Button onClick={()=>router.push(route)} variant="contained" disableElevation>
-      {text}
-    </Button>
+    <Link href={route}>
+      <Button variant="contained" disableElevation>
+        {text}
+      </Button>
+    </Link>
   );
 }
 
