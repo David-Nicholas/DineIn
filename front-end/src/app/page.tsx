@@ -1,6 +1,6 @@
 import Image from "next/image";
-import styles from "./page.module.css";
-import CustomButton from "@/components/CustomButton";
+import styles from "../utils/page.module.css";
+import CustomButton from "@/components/moleculas/CustomButton";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
