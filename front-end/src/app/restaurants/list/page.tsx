@@ -1,9 +1,13 @@
-import CustomButton from "@/components/moleculas/CustomButton";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import ConstructionIcon from '@mui/icons-material/Construction';
 import { fetchData } from "@/api/apiClient";
+import RestaurantCard from '@/components/moleculas/RestaurantCard';
 
+export type Restaurant = {
+  id: number
+  name: string
+  description: string
+}
 
 export default async function Page() {
   const data = await fetchData('/restaurants')
@@ -12,6 +16,19 @@ export default async function Page() {
   return (
     <Box>
       <Typography>Restaurants</Typography>
+      {data &&
+        <Box sx={{
+          display: "flex",
+          flexDirection: "row",
+          gap: 3,
+          // justifyContent: "center",
+          flexWrap: "wrap"
+        }}>
+          {data.map((item: Restaurant)=>(
+            <RestaurantCard restaurant={item}/>
+          ))}
+        </Box>
+      }
     </Box>
   );
 }
