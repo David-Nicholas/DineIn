@@ -5,7 +5,7 @@ DineIn redefineste experienta rezervarilor in restaurantele din Timisoara printr
 Tools:
 Front-end React.js
 Back-end: Spring Boot
-Maps:  Google Maps API / Mapbox API / Altul
+Maps:  Google Maps API / Mapbox API
 
 
 Wireframe: https://www.figma.com/file/IfYYazn0JdmrxWFA2TkZMW/WireFrame?type=design&node-id=0%3A1&mode=design&t=bE6NBbCHylY2gfVb-1
