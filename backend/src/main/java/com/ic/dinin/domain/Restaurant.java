@@ -1,8 +1,6 @@
 package com.ic.dinin.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = Restaurant.TABLE_NAME)
@@ -13,6 +11,8 @@ public class Restaurant extends BaseEntity {
     interface Columns{
         String NAME = "NAME";
         String DESCRIPTION = "DESCRIPTION";
+        String COORDINATE_X = "COORDINATE_X";
+        String COORDINATE_Y = "COORDINATE_Y";
     }
 
     protected Restaurant(){
@@ -25,8 +25,23 @@ public class Restaurant extends BaseEntity {
     }
 
     @Column(name = Columns.NAME, nullable = false)
-    public String name;
+    private String name;
 
     @Column(name = Columns.DESCRIPTION)
-    public String description;
+    private String description;
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "coordinate_x", column = @Column(name = Columns.COORDINATE_X, nullable = false)),
+        @AttributeOverride(name = "coordinate_y", column = @Column(name = Columns.COORDINATE_Y, nullable = false)),
+    })
+    private MapCoordinates mapCoordinates;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
