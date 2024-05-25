@@ -2,6 +2,8 @@ package com.ic.dinin.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = Restaurant.TABLE_NAME)
 public class Restaurant extends BaseEntity {
@@ -19,9 +21,10 @@ public class Restaurant extends BaseEntity {
 
     }
 
-    public Restaurant(String name, String description) {
+    public Restaurant(String name, String description, MapCoordinates mapCoordinates) {
         this.name = name;
         this.description = description;
+        this.mapCoordinates = mapCoordinates;
     }
 
     @Column(name = Columns.NAME, nullable = false)
@@ -37,11 +40,41 @@ public class Restaurant extends BaseEntity {
     })
     private MapCoordinates mapCoordinates;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = RestaurantTable.Columns.RESTAURANT_TABLE_ID, foreignKey = @ForeignKey(foreignKeyDefinition =
+            "FOREIGN KEY (" + RestaurantTable.Columns.RESTAURANT_TABLE_ID + ") REFERENCES " + RestaurantTable.TABLE_NAME + " (" + BaseEntity.ID + ")  ON DELETE CASCADE"))
+    private Set<RestaurantTable> restaurantTables;
+
+    public void addTable(RestaurantTable table){
+        if(restaurantTables.contains(table)){
+            throw new IllegalArgumentException("table already exists");
+        }
+        restaurantTables.add(table);
+    }
+
     public String getName() {
         return name;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    public MapCoordinates getMapCoordinates() {
+        return mapCoordinates;
+    }
+
+    public Set<RestaurantTable> getRestaurantTables() {
+        return restaurantTables;
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", mapCoordinates=" + mapCoordinates +
+                ", restaurantTables=" + restaurantTables +
+                '}';
     }
 }

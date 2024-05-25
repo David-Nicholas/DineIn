@@ -10,6 +10,7 @@ public class RestaurantTable extends BaseEntity {
     public static final String TABLE_NAME = "RESTAURANT_TABLE";
 
     interface Columns{
+        String RESTAURANT_TABLE_ID = "RESTAURANT_TABLE_ID";
         String SEATS = "SEATS";
     }
 
@@ -26,5 +27,12 @@ public class RestaurantTable extends BaseEntity {
 
     public int getSeats() {
         return seats;
+    }
+
+    @Override
+    public String toString() {
+        return "RestaurantTable{" +
+                "seats=" + seats +
+                '}';
     }
 }
