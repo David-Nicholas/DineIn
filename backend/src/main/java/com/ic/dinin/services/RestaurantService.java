@@ -14,7 +14,7 @@ public class RestaurantService {
         this.restaurantRepository = restaurantRepository;
     }
 
-    public List<Restaurant> getCategories() {
+    public List<Restaurant> getRestaurants() {
         return restaurantRepository.findAll();
     }
 }

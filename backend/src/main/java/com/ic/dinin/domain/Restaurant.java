@@ -52,6 +52,12 @@ public class Restaurant extends BaseEntity {
         restaurantTables.add(table);
     }
 
+    public void updateRestaurant(String name, String description, MapCoordinates mapCoordinates){
+        this.name = name;
+        this.mapCoordinates = mapCoordinates;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }

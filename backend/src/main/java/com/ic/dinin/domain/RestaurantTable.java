@@ -25,6 +25,10 @@ public class RestaurantTable extends BaseEntity {
     @Column(name = Columns.SEATS, nullable = false)
     private int seats;
 
+    public void updateTable(int seats){
+        this.seats = seats;
+    }
+
     public int getSeats() {
         return seats;
     }
