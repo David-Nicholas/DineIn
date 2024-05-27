@@ -17,6 +17,7 @@ const CustomIcon = L.divIcon({
 });
 
 const Markers = ({ restaurant }: MarkersProps) => {
+    console.log(restaurant);
   const { coordinateX,  coordinateY} = restaurant.mapCoordinates;
     return (
         <Marker position={[coordinateX, coordinateY]} icon={CustomIcon}>

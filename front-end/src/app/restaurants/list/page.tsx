@@ -23,7 +23,6 @@ export type Restaurant = {
 
 export default async function Page() {
   const data = await fetchData('/restaurants')
-  console.log(data);
 
   return (
     <Box>

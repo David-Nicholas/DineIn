@@ -21,10 +21,9 @@ const Map = ({data}:MarkersProps) =>{
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {/* { data &&
-      data.map((item: Restaurant)=>(
-        <Markers restaurant={item}/>
-      ))} */}
+      { data && data.map((item: Restaurant)=>(
+        <Markers key={item.id} restaurant={item}/>
+      ))}
     </MapContainer>
     )
 }
