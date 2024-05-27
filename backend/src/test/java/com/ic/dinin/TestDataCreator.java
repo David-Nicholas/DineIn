@@ -15,7 +15,7 @@ public class TestDataCreator {
 
     public static void createRestaurantsData(EntityManager em){
 
-        Restaurants.restaurant1 = createRestaurant(em, "Peppers", "mancare", new MapCoordinates(1,2));
+        Restaurants.restaurant1 = createRestaurant(em, "Peppers", "mancare", new MapCoordinates(45.75815142782663f, 21.226471371681047f));
         Restaurants.restaurant2 = createRestaurant(em, "MBistro", "mancare", new MapCoordinates(1,2));
         Restaurants.restaurant3 = createRestaurant(em, "SteakHouse", "mancare", new MapCoordinates(1,2));
         Restaurants.restaurant4 = createRestaurant(em, "Casa Bunicii", "mancare", new MapCoordinates(1,2));

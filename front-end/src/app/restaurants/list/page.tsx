@@ -17,7 +17,7 @@ export type Restaurant = {
   id: number
   name: string
   description: string
-  mapCoordinates: MapCoordinates[]
+  mapCoordinates: MapCoordinates
   restaurantTables?: RestaurantTable[]
 }
 
