@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import 'leaflet/dist/leaflet.css';
 import { fetchData } from "@/api/apiClient";
-import Map from "@/components/organisms/Map";
+import dynamic from 'next/dynamic';
 
 export type RestaurantTable = {
   id: number
@@ -20,6 +20,11 @@ export type Restaurant = {
   mapCoordinates: MapCoordinates
   restaurantTables?: RestaurantTable[]
 }
+
+const Map = dynamic(() => import("@/components/organisms/Map"), {
+  ssr: false,
+});
+
 
 export default async function Page() {
   const data = await fetchData('/restaurants')
