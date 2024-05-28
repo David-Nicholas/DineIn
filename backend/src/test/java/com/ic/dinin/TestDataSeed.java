@@ -22,6 +22,9 @@ public class TestDataSeed {
 
         new JpaHelper(emf).doTransaction(em -> {
             TestDataCreator.createRestaurantsData(em);
+            TestDataCreator.createRestaurantTablesData(em);
+            TestDataCreator.addRestaurantTables(em);
+            TestDataCreator.createReservationsData(em);
         });
     }
 

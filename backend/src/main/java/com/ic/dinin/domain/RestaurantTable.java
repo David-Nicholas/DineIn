@@ -1,8 +1,6 @@
 package com.ic.dinin.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = RestaurantTable.TABLE_NAME)
@@ -10,13 +8,11 @@ public class RestaurantTable extends BaseEntity {
     public static final String TABLE_NAME = "RESTAURANT_TABLE";
 
     interface Columns{
-        String RESTAURANT_TABLE_ID = "RESTAURANT_TABLE_ID";
+        String RESTAURANT_ID = "RESTAURANT_ID";
         String SEATS = "SEATS";
     }
 
-    protected RestaurantTable(){
-
-    }
+    protected RestaurantTable(){}
 
     public RestaurantTable(int seats) {
         this.seats = seats;
