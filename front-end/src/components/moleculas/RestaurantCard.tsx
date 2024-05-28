@@ -1,5 +1,4 @@
 "use client"
-
 import { Restaurant } from "@/app/restaurants/list/page"
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material"
 

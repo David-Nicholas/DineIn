@@ -37,7 +37,7 @@ export default async function Page() {
           flexWrap: "wrap"
         }}>
           {data.map((item: Restaurant)=>(
-            <RestaurantCard restaurant={item}/>
+            <RestaurantCard key={item.id} restaurant={item}/>
           ))}
         </Box>
       }
