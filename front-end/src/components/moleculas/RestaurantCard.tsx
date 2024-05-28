@@ -8,8 +8,6 @@ type RestaurantCardProps = {
 }
 
 const RestaurantCard = ({restaurant}: RestaurantCardProps) => {
-  console.log(restaurant);
-  
   return(
     <>
       <Card sx={{ maxWidth: 345 }}>
