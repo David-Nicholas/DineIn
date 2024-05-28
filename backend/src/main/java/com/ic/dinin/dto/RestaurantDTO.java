@@ -12,6 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class RestaurantDTO {
     private long id;
+    private String imageUrl;
     private String name;
     private String description;
     private MapCoordinates mapCoordinates;

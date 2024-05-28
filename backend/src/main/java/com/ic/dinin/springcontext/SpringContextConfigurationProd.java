@@ -1,19 +1,22 @@
 package com.ic.dinin.springcontext;
 
 import com.ic.dinin.SpringProfiles;
-import com.ic.dinin.TestDataSeed;
+import com.ic.dinin.infrastructure.images.service.AwsS3ImageHandlingService;
 import com.ic.dinin.infrastructure.images.service.ImageService;
-import com.ic.dinin.infrastructure.images.service.LocalDiskImageHandlingService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+
 @Configuration
-@Profile(SpringProfiles.DEV)
-public class SpringContextConfigurationDev {
+@Profile(SpringProfiles.PROD)
+public class SpringContextConfigurationProd {
 
     @Bean
     public ImageService imageService() {
-        return new LocalDiskImageHandlingService();
+        return new AwsS3ImageHandlingService();
     }
+
 }

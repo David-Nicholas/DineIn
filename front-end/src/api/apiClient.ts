@@ -8,7 +8,7 @@ function getRequiredVariable(name: string): string {
 
 export async function fetchData(route: string) {
     const urlFetch: string = getRequiredVariable('NEXT_PUBLIC_API_URL') + route    
-    const res = await fetch(urlFetch, { cache: 'force-cache' })
+    const res = await fetch(urlFetch, { cache: 'no-store' })
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
    

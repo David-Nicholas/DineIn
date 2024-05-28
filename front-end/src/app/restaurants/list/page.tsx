@@ -19,12 +19,12 @@ export type Restaurant = {
   description: string
   mapCoordinates: MapCoordinates[]
   restaurantTables?: RestaurantTable[]
+  imageUrl: string;
 }
 
 export default async function Page() {
   const data = await fetchData('/restaurants')
-  console.log(data);
-
+  
   return (
     <Box>
       <Typography>Restaurants</Typography>
