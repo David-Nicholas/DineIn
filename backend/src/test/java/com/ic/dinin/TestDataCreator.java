@@ -15,11 +15,11 @@ public class TestDataCreator {
 
     public static void createRestaurantsData(EntityManager em){
 
-        Restaurants.restaurant1 = createRestaurant(em, "Peppers", "mancare", new MapCoordinates(1,2), "restaurant.jpeg");
-        Restaurants.restaurant2 = createRestaurant(em, "MBistro", "mancare", new MapCoordinates(1,2), "restaurant.jpeg");
-        Restaurants.restaurant3 = createRestaurant(em, "SteakHouse", "mancare", new MapCoordinates(1,2), "restaurant.jpeg");
-        Restaurants.restaurant4 = createRestaurant(em, "Casa Bunicii", "mancare", new MapCoordinates(1,2), "restaurant.jpeg");
-        Restaurants.restaurant5 = createRestaurant(em, "Nora", "mancare", new MapCoordinates(1,2), "restaurant.jpeg");
+        Restaurants.restaurant1 = createRestaurant(em, "Peppers", "mancare", new MapCoordinates(1,2), "peppers.jpeg");
+        Restaurants.restaurant2 = createRestaurant(em, "MBistro", "mancare", new MapCoordinates(1,2), "mbistro.jpeg");
+        Restaurants.restaurant3 = createRestaurant(em, "Nor", "mancare", new MapCoordinates(1,2), "nor.jpeg");
+        Restaurants.restaurant4 = createRestaurant(em, "Casa Bunicii", "mancare", new MapCoordinates(1,2), "casa_bunicii.jpeg");
+        Restaurants.restaurant5 = createRestaurant(em, "Nora", "mancare", new MapCoordinates(1,2), "nora.jpeg");
     }
 
     public static class Restaurants {
