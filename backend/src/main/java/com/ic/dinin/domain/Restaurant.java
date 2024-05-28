@@ -15,16 +15,18 @@ public class Restaurant extends BaseEntity {
         String DESCRIPTION = "DESCRIPTION";
         String COORDINATE_X = "COORDINATE_X";
         String COORDINATE_Y = "COORDINATE_Y";
+        String IMAGE_URL = "IMAGE_URL";
     }
 
     protected Restaurant(){
 
     }
 
-    public Restaurant(String name, String description, MapCoordinates mapCoordinates) {
+    public Restaurant(String name, String description, MapCoordinates mapCoordinates, String imageUrl) {
         this.name = name;
         this.description = description;
         this.mapCoordinates = mapCoordinates;
+        this.imageUrl = imageUrl;
     }
 
     @Column(name = Columns.NAME, nullable = false)
@@ -32,6 +34,9 @@ public class Restaurant extends BaseEntity {
 
     @Column(name = Columns.DESCRIPTION)
     private String description;
+
+    @Column(name = Columns.IMAGE_URL)
+    private String imageUrl;
 
     @Embedded
     @AttributeOverrides({
@@ -72,6 +77,10 @@ public class Restaurant extends BaseEntity {
 
     public Set<RestaurantTable> getRestaurantTables() {
         return restaurantTables;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     @Override

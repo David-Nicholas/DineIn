@@ -19,12 +19,12 @@ export type Restaurant = {
   description: string
   mapCoordinates: MapCoordinates[]
   restaurantTables?: RestaurantTable[]
+  imageUrl: string;
 }
 
 export default async function Page() {
   const data = await fetchData('/restaurants')
-  console.log(data);
-
+  
   return (
     <Box>
       <Typography>Restaurants</Typography>
@@ -37,7 +37,7 @@ export default async function Page() {
           flexWrap: "wrap"
         }}>
           {data.map((item: Restaurant)=>(
-            <RestaurantCard restaurant={item}/>
+            <RestaurantCard key={item.id} restaurant={item}/>
           ))}
         </Box>
       }

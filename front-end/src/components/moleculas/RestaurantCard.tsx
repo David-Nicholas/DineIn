@@ -1,5 +1,4 @@
 "use client"
-
 import { Restaurant } from "@/app/restaurants/list/page"
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material"
 
@@ -13,7 +12,7 @@ const RestaurantCard = ({restaurant}: RestaurantCardProps) => {
       <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image={`http://localhost:8080/images/${restaurant.imageUrl}`}
         title="green iguana"
       />
       <CardContent>
