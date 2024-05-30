@@ -17,17 +17,16 @@ import java.util.stream.Collectors;
 @Service
 public class ReservationService {
     private final ReservationRepository reservationRepository;
-    private final RestaurantRepository restaurantRepository;
+    private final RestaurantService restaurantService;
 
-    public ReservationService(ReservationRepository reservationRepository, RestaurantRepository restaurantRepository) {
+    public ReservationService(ReservationRepository reservationRepository, RestaurantService restaurantService) {
         this.reservationRepository = reservationRepository;
-        this.restaurantRepository = restaurantRepository;
+        this.restaurantService = restaurantService;
     }
 
     public Reservation createReservation(float reservationDuration, LocalDateTime startReservationTime, long restaurantId, int numberOfPeople) {
 
-        Restaurant restaurant = restaurantRepository.findById(restaurantId)
-                .orElseThrow(() -> new IllegalArgumentException("Restaurant not found"));
+        Restaurant restaurant = restaurantService.getRestaurant(restaurantId);
 
         List<RestaurantTable> tables = restaurant.getRestaurantTables().stream().toList();
 
