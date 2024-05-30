@@ -14,4 +14,5 @@ public class ReservationInputDTO {
     private float reservationDuration;
     private int numberOfPeople;
     private long restaurantId;
+    private String phoneNumber;
 }

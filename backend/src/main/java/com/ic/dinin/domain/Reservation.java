@@ -20,7 +20,6 @@ public class Reservation extends BaseEntity {
         String RESERVATION_DURATION = "RESERVATION_DURATION";
         String NUMBER_OF_PEOPLE = "NUMBER_OF_PEOPLE";
         String PHONE_NUMBER = "PHONE_NUMBER";
-        String RESERVATION_STATUS = "RESERVATION_STATUS";
     }
 
     @Column(name = Columns.DATE_TIME, nullable = false)
@@ -39,25 +38,25 @@ public class Reservation extends BaseEntity {
     @Column(name = Columns.NUMBER_OF_PEOPLE, nullable = false)
     private int numberOfPeople;
 
+    @Column(name = Columns.PHONE_NUMBER, nullable = false)
+    private String phoneNumber;
+
     protected Reservation(){}
 
-    public Reservation(LocalDateTime startReservationTime, float reservationDuration, Set<RestaurantTable> tables, int numberOfPeople){
+    public Reservation(LocalDateTime startReservationTime, float reservationDuration, Set<RestaurantTable> tables, int numberOfPeople, String phoneNumber){
         this.startReservationTime = startReservationTime;
         this.reservationDuration = reservationDuration;
         this.tables = tables;
         this.numberOfPeople = numberOfPeople;
+        this.phoneNumber = phoneNumber;
     }
 
     public LocalDateTime getStartReservationTime() {
         return startReservationTime;
     }
 
-    public Set<RestaurantTable> getTable() {
-        return Collections.unmodifiableSet(tables);
-    }
-
     public Set<RestaurantTable> getTables() {
-        return tables;
+        return Collections.unmodifiableSet(tables);
     }
 
     public float getReservationDuration() {

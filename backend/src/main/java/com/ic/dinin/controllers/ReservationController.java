@@ -29,8 +29,9 @@ public class ReservationController {
         LocalDateTime startReservationTime = reservation.getStartReservationTime();
         long restaurantId = reservation.getRestaurantId();
         int numberOfPeople = reservation.getNumberOfPeople();
+        String phoneNumber = reservation.getPhoneNumber();
 
-        Reservation createdReservation = reservationService.createReservation(reservationDuration, startReservationTime, restaurantId, numberOfPeople);
+        Reservation createdReservation = reservationService.createReservation(reservationDuration, startReservationTime, restaurantId, numberOfPeople, phoneNumber);
         return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(createdReservation, ReservationDTO.class));
     }
 }

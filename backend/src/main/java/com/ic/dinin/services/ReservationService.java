@@ -23,7 +23,7 @@ public class ReservationService {
         this.restaurantService = restaurantService;
     }
 
-    public Reservation createReservation(float reservationDuration, LocalDateTime startReservationTime, long restaurantId, int numberOfPeople) {
+    public Reservation createReservation(float reservationDuration, LocalDateTime startReservationTime, long restaurantId, int numberOfPeople, String phoneNumber) {
 
         Restaurant restaurant = restaurantService.getRestaurant(restaurantId);
 
@@ -32,7 +32,7 @@ public class ReservationService {
         Set<RestaurantTable> availableTables = findAvailableTables(tables, startReservationTime, reservationDuration, numberOfPeople);
 
         if (!availableTables.isEmpty()) {
-            Reservation reservation = new Reservation(startReservationTime, reservationDuration, availableTables, numberOfPeople);
+            Reservation reservation = new Reservation(startReservationTime, reservationDuration, availableTables, numberOfPeople, phoneNumber);
             return reservationRepository.save(reservation);
         } else {
             throw new IllegalArgumentException("No available tables found for the specified time and duration");
