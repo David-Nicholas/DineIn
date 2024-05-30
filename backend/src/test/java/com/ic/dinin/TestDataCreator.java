@@ -6,6 +6,12 @@ import com.ic.dinin.domain.Restaurant;
 import com.ic.dinin.domain.RestaurantTable;
 import jakarta.persistence.EntityManager;
 
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 public class TestDataCreator {
 
     private static Restaurant createRestaurant(EntityManager em, String name, String description, MapCoordinates mapCoordinates, String imageUrl){
@@ -59,18 +65,18 @@ public class TestDataCreator {
         Restaurants.restaurant22 = createRestaurant(em, "Restaurant Dinar", "Restaurant", new MapCoordinates(45.752386597450304f, 21.240265404850135f), "peppers.jpeg");
     }
 
-    private static Reservation createReservation(EntityManager em, RestaurantTable table){
-        RestaurantTable tableManaged = em.merge(table);
-        Reservation reservation = new Reservation(tableManaged);
+    private static Reservation createReservation(EntityManager em, Set<RestaurantTable> tables, LocalDateTime startReservationTime, float reservationDuration){
+        Reservation reservation = new Reservation(startReservationTime, reservationDuration, tables);
         em.persist(reservation);
         return reservation;
     }
 
     public static void createReservationsData(EntityManager em){
-        Reservations.reservation1 = createReservation(em, Tables.restaurantTable1);
-        Reservations.reservation2 = createReservation(em, Tables.restaurantTable7);
-        Reservations.reservation3 = createReservation(em, Tables.restaurantTable4);
-        Reservations.reservation4 = createReservation(em, Tables.restaurantTable9);
+
+        Reservations.reservation1 = createReservation(em, Collections.singleton(Tables.restaurantTable2), LocalDateTime.now(), 2f);
+        Reservations.reservation2 = createReservation(em, Collections.singleton(Tables.restaurantTable7), LocalDateTime.now(), 2f);
+        Reservations.reservation3 = createReservation(em, Collections.singleton(Tables.restaurantTable4), LocalDateTime.now(), 1f);
+        Reservations.reservation4 = createReservation(em, Collections.singleton(Tables.restaurantTable9), LocalDateTime.now(), 1f);
     }
 
     public static void addRestaurantTables(EntityManager em){

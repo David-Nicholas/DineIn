@@ -6,11 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReservationDTO {
-    private LocalDateTime dateTime;
-    private RestaurantTableDTO table;
+    private LocalDateTime startReservationTime;
+    private Set<RestaurantTableDTO> tables;
+    private float reservationDuration;
 }
