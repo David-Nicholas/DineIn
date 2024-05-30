@@ -11,7 +11,7 @@ const CustomButton = ({ text, route }: CustomButtonProps) => {
 
   return (
     <Link href={route}>
-      <Button variant="contained" disableElevation>
+      <Button variant="contained" disableElevation sx={{ mr: 1, ml:1, mt:1, mb: 1}}>
         {text}
       </Button>
     </Link>

@@ -1,33 +1,39 @@
 "use client"
 import { Restaurant } from "@/app/restaurants/list/page"
-import { Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material"
+import { Card, CardMedia, CardContent, Typography, CardActions, Button, Box } from "@mui/material"
+import CustomButton from "./CustomButton"
 
 type RestaurantCardProps = {
   restaurant: Restaurant
 }
 
-const RestaurantCard = ({restaurant}: RestaurantCardProps) => {
-  return(
+const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
+  const descriptionBeforeComma = restaurant.description.split(',')[0];
+  return (
     <>
       <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image={`http://localhost:8080/images/${restaurant.imageUrl}`}
-        title="green iguana"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {restaurant.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {restaurant.description}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+        <CardMedia
+          sx={{ height: 140 }}
+          image={`http://localhost:8080/images/${restaurant.imageUrl}`}
+          title="green iguana"
+        />
+        <CardContent>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <Typography gutterBottom variant="h5" component="div" textAlign="center">
+              {restaurant.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" textAlign="center">
+              {descriptionBeforeComma}
+            </Typography>
+          </Box>
+        </CardContent>
+        <CardActions>
+          <Box display="flex" justifyContent="center" width="100%">
+            <CustomButton text="BOOK" route=""/>
+            <CustomButton text="MORE" route={`/restaurants/${restaurant.id}`} />
+          </Box>
+        </CardActions>
+      </Card>
     </>
   )
 }

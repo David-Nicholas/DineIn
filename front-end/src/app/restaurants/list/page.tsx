@@ -17,7 +17,7 @@ export type Restaurant = {
   id: number
   name: string
   description: string
-  mapCoordinates: MapCoordinates[]
+  mapCoordinates: MapCoordinates
   restaurantTables?: RestaurantTable[]
   imageUrl: string;
 }
@@ -27,14 +27,15 @@ export default async function Page() {
   
   return (
     <Box>
-      <Typography>Restaurants</Typography>
       {data &&
         <Box sx={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 3,
-          // justifyContent: "center",
-          flexWrap: "wrap"
+          display: "grid",
+          gridTemplateColumns: {
+            xs: '1fr', 
+            sm: 'repeat(2, 1fr)', 
+            md: 'repeat(3, 1fr)' 
+          },
+          gap: 3
         }}>
           {data.map((item: Restaurant)=>(
             <RestaurantCard key={item.id} restaurant={item}/>
