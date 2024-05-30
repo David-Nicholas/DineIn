@@ -24,7 +24,7 @@ public class ReservationController {
     }
 
     @PostMapping("/reservations")
-    public ResponseEntity<Object> createCategory(@RequestBody ReservationInputDTO reservation) {
+    public ResponseEntity<Object> createReservation(@RequestBody ReservationInputDTO reservation) {
         float reservationDuration = reservation.getReservationDuration();
         LocalDateTime startReservationTime = reservation.getStartReservationTime();
         long restaurantId = reservation.getRestaurantId();
