@@ -4,7 +4,6 @@ import com.ic.dinin.domain.Reservation;
 import com.ic.dinin.domain.Restaurant;
 import com.ic.dinin.domain.RestaurantTable;
 import com.ic.dinin.repositories.ReservationRepository;
-import com.ic.dinin.repositories.RestaurantRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
