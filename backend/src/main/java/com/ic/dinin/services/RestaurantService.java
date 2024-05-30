@@ -17,4 +17,8 @@ public class RestaurantService {
     public List<Restaurant> getRestaurants() {
         return restaurantRepository.findAll();
     }
+
+    public Restaurant getRestaurant(long id){
+        return restaurantRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Restaurant not found"));
+    }
 }

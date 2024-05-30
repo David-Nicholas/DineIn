@@ -3,7 +3,6 @@ package com.ic.dinin.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
 
@@ -19,6 +18,9 @@ public class Reservation extends BaseEntity {
         String DATE_TIME = "DATE_TIME";
         String RESTAURANT_TABLE_ID = "RESTAURANT_TABLE_ID";
         String RESERVATION_DURATION = "RESERVATION_DURATION";
+        String NUMBER_OF_PEOPLE = "NUMBER_OF_PEOPLE";
+        String PHONE_NUMBER = "PHONE_NUMBER";
+        String RESERVATION_STATUS = "RESERVATION_STATUS";
     }
 
     @Column(name = Columns.DATE_TIME, nullable = false)
@@ -34,13 +36,16 @@ public class Reservation extends BaseEntity {
     @Column(name = Columns.RESERVATION_DURATION, nullable = false)
     private float reservationDuration;
 
+    @Column(name = Columns.NUMBER_OF_PEOPLE, nullable = false)
+    private int numberOfPeople;
+
     protected Reservation(){}
 
-    public Reservation(LocalDateTime startReservationTime, float reservationDuration, Set<RestaurantTable> tables){
+    public Reservation(LocalDateTime startReservationTime, float reservationDuration, Set<RestaurantTable> tables, int numberOfPeople){
         this.startReservationTime = startReservationTime;
         this.reservationDuration = reservationDuration;
         this.tables = tables;
-
+        this.numberOfPeople = numberOfPeople;
     }
 
     public LocalDateTime getStartReservationTime() {
@@ -59,12 +64,17 @@ public class Reservation extends BaseEntity {
         return reservationDuration;
     }
 
+    public int getNumberOfPeople() {
+        return numberOfPeople;
+    }
+
     @Override
     public String toString() {
         return "Reservation{" +
                 "startReservationTime=" + startReservationTime +
                 ", tables=" + tables +
                 ", reservationDuration=" + reservationDuration +
+                ", numberOfPeople=" + numberOfPeople +
                 '}';
     }
 }
