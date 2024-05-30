@@ -1,16 +1,42 @@
 package com.ic.dinin;
 
 import com.ic.dinin.domain.MapCoordinates;
+import com.ic.dinin.domain.Reservation;
 import com.ic.dinin.domain.Restaurant;
+import com.ic.dinin.domain.RestaurantTable;
 import jakarta.persistence.EntityManager;
+
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TestDataCreator {
 
-    public static Restaurant createRestaurant(EntityManager em, String name, String description, MapCoordinates mapCoordinates, String imageUrl){
-        Restaurant buyer = new Restaurant(name, description, mapCoordinates, imageUrl);
-        em.persist(buyer);
+    private static Restaurant createRestaurant(EntityManager em, String name, String description, MapCoordinates mapCoordinates, String imageUrl){
+        Restaurant restaurant = new Restaurant(name, description, mapCoordinates, imageUrl);
+        em.persist(restaurant);
+        return restaurant;
+    }
 
-        return buyer;
+    private static RestaurantTable createTable(EntityManager em, int seats){
+        RestaurantTable restaurantTable = new RestaurantTable(seats);
+        em.persist(restaurantTable);
+        return restaurantTable;
+    }
+
+    public static void createRestaurantTablesData(EntityManager em){
+        Tables.restaurantTable1 = createTable(em, 4);
+        Tables.restaurantTable2 = createTable(em, 2);
+        Tables.restaurantTable3 = createTable(em, 6);
+        Tables.restaurantTable4 = createTable(em, 4);
+        Tables.restaurantTable5 = createTable(em, 8);
+        Tables.restaurantTable6 = createTable(em, 2);
+        Tables.restaurantTable7 = createTable(em, 2);
+        Tables.restaurantTable8 = createTable(em, 4);
+        Tables.restaurantTable9 = createTable(em, 6);
+        Tables.restaurantTable10 = createTable(em, 2);
     }
 
     public static void createRestaurantsData(EntityManager em){
@@ -39,6 +65,37 @@ public class TestDataCreator {
         Restaurants.restaurant22 = createRestaurant(em, "Restaurant Dinar", "Restaurant", new MapCoordinates(45.752386597450304f, 21.240265404850135f), "peppers.jpeg");
     }
 
+    private static Reservation createReservation(EntityManager em, Set<RestaurantTable> tables, LocalDateTime startReservationTime, float reservationDuration, int numberOfPeople, String phoneNumber){
+        Reservation reservation = new Reservation(startReservationTime, reservationDuration, tables, numberOfPeople, phoneNumber);
+        em.persist(reservation);
+        return reservation;
+    }
+
+    public static void createReservationsData(EntityManager em){
+
+        Reservations.reservation1 = createReservation(em, Collections.singleton(Tables.restaurantTable2), LocalDateTime.now(), 2f, 4, "0770157915");
+        Reservations.reservation2 = createReservation(em, Collections.singleton(Tables.restaurantTable7), LocalDateTime.now(), 2f, 6, "0770157915");
+        Reservations.reservation3 = createReservation(em, Collections.singleton(Tables.restaurantTable4), LocalDateTime.now(), 1f, 2, "0770157915");
+        Reservations.reservation4 = createReservation(em, Collections.singleton(Tables.restaurantTable9), LocalDateTime.now(), 1f, 1, "0770157915");
+    }
+
+    public static void addRestaurantTables(EntityManager em){
+        Restaurant restaurant1 = em.merge(Restaurants.restaurant1);
+        Restaurant restaurant2 = em.merge(Restaurants.restaurant2);
+
+        restaurant1.addTable(Tables.restaurantTable1);
+        restaurant1.addTable(Tables.restaurantTable2);
+        restaurant1.addTable(Tables.restaurantTable3);
+        restaurant1.addTable(Tables.restaurantTable4);
+        restaurant1.addTable(Tables.restaurantTable5);
+
+        restaurant2.addTable(Tables.restaurantTable6);
+        restaurant2.addTable(Tables.restaurantTable7);
+        restaurant2.addTable(Tables.restaurantTable8);
+        restaurant2.addTable(Tables.restaurantTable9);
+        restaurant2.addTable(Tables.restaurantTable10);
+    }
+
     public static class Restaurants {
         public static Restaurant restaurant1;
         public static Restaurant restaurant2;
@@ -62,6 +119,26 @@ public class TestDataCreator {
         public static Restaurant restaurant20;
         public static Restaurant restaurant21;
         public static Restaurant restaurant22;
+    }
+
+    public static class Tables {
+        public static RestaurantTable restaurantTable1;
+        public static RestaurantTable restaurantTable2;
+        public static RestaurantTable restaurantTable3;
+        public static RestaurantTable restaurantTable4;
+        public static RestaurantTable restaurantTable5;
+        public static RestaurantTable restaurantTable6;
+        public static RestaurantTable restaurantTable7;
+        public static RestaurantTable restaurantTable8;
+        public static RestaurantTable restaurantTable9;
+        public static RestaurantTable restaurantTable10;
+    }
+
+    public static class Reservations {
+        public static Reservation reservation1;
+        public static Reservation reservation2;
+        public static Reservation reservation3;
+        public static Reservation reservation4;
     }
 
 }

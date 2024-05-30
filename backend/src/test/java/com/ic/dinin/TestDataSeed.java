@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile({SpringProfiles.TEST_DATA_SEED})
+@Profile({SpringProfiles.TEST_DATA_SEED, SpringProfiles.LOCAL_MS_SQL})
 public class TestDataSeed {
 
     @PersistenceUnit
@@ -22,6 +22,9 @@ public class TestDataSeed {
 
         new JpaHelper(emf).doTransaction(em -> {
             TestDataCreator.createRestaurantsData(em);
+            TestDataCreator.createRestaurantTablesData(em);
+            TestDataCreator.addRestaurantTables(em);
+            TestDataCreator.createReservationsData(em);
         });
     }
 

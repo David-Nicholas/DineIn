@@ -2,6 +2,7 @@ package com.ic.dinin.domain;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -27,9 +28,10 @@ public class Restaurant extends BaseEntity {
         this.description = description;
         this.mapCoordinates = mapCoordinates;
         this.imageUrl = imageUrl;
+        this.restaurantTables = new HashSet<>();
     }
 
-    @Column(name = Columns.NAME, nullable = false)
+    @Column(name = Columns.NAME, nullable = false, unique = true)
     private String name;
 
     @Column(name = Columns.DESCRIPTION)
@@ -46,8 +48,8 @@ public class Restaurant extends BaseEntity {
     private MapCoordinates mapCoordinates;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = RestaurantTable.Columns.RESTAURANT_TABLE_ID, foreignKey = @ForeignKey(foreignKeyDefinition =
-            "FOREIGN KEY (" + RestaurantTable.Columns.RESTAURANT_TABLE_ID + ") REFERENCES " + RestaurantTable.TABLE_NAME + " (" + BaseEntity.ID + ")  ON DELETE CASCADE"))
+    @JoinColumn(name = RestaurantTable.Columns.RESTAURANT_ID, foreignKey = @ForeignKey(foreignKeyDefinition =
+            "FOREIGN KEY (" + RestaurantTable.Columns.RESTAURANT_ID + ") REFERENCES " + RestaurantTable.TABLE_NAME + " (" + BaseEntity.ID + ")  ON DELETE CASCADE"))
     private Set<RestaurantTable> restaurantTables;
 
     public void addTable(RestaurantTable table){
@@ -88,6 +90,7 @@ public class Restaurant extends BaseEntity {
         return "Restaurant{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", mapCoordinates=" + mapCoordinates +
                 ", restaurantTables=" + restaurantTables +
                 '}';
