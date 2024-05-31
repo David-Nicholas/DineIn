@@ -29,7 +29,7 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
   const [date, setDate] = React.useState<Dayjs>(dayjs());  
 
   const [phoneNumber, setPhoneNumber] = React.useState<string>("");  
-  const [numberOfPeople, setNumberOfPeople] = React.useState<number>(2);  
+  const [numberOfPeople, setNumberOfPeople] = React.useState<string>("2");  
   const [reservationTime, setReservationTime] = React.useState<number>(1);
 
   const [result, setResult] = React.useState<Reservation | null>(null);
@@ -45,7 +45,7 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
     const res = await makeReservation({
       reservationDuration: reservationTime,
       startReservationTime: combinedDateTime.toISOString(),
-      numberOfPeople: numberOfPeople,
+      numberOfPeople: JSON.parse(numberOfPeople),
       restaurantId: restaurant.id,
       phoneNumber: phoneNumber,
     })
@@ -123,16 +123,16 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
             <TextField
               type="number"
               id="number-of-people"
-              label="NumberOfPeople"
+              label="Number Of People"
               value={numberOfPeople}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                setNumberOfPeople(JSON.parse(event.target.value));
+                setNumberOfPeople((event.target.value));
               }}
             />
             <TextField
               type="text"
               id="phone-number"
-              label="PhoneNumber"
+              label="Phone Number"
               value={phoneNumber}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 setPhoneNumber(event.target.value);
