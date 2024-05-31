@@ -2,7 +2,7 @@
 
 import { MapContainer, TileLayer } from "react-leaflet"
 import Markers from "../moleculas/Markers"
-import { Restaurant } from "@/app/restaurants/map/page"
+import { Restaurant } from "@/app/restaurants/list/page"
 
 const mapStyle = {
     width: `calc(100% - 40px)`, 

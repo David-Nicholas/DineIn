@@ -41,28 +41,28 @@ public class TestDataCreator {
 
     public static void createRestaurantsData(EntityManager em){
 
-        Restaurants.restaurant1 = createRestaurant(em, "Peppers", "mancare", new MapCoordinates(45.75815142782663f, 21.226471371681047f), "peppers.jpeg");
-        Restaurants.restaurant2 = createRestaurant(em, "Taverna Racilor", "Restaurant cu fructe de mare", new MapCoordinates(45.766531005475976f, 21.22982406694069f), "peppers.jpeg");
-        Restaurants.restaurant3 = createRestaurant(em, "Fenice Palas Timisoara", "Restaurant", new MapCoordinates(45.765399415259054f, 21.227762903545052f), "peppers.jpeg");
-        Restaurants.restaurant4 = createRestaurant(em, "C House Milano", "Restaurant", new MapCoordinates(45.765566408740085f, 21.22761276530506f), "peppers.jpeg");
-        Restaurants.restaurant5 = createRestaurant(em, "Enjoy Sushi", "Restaurant cu specific asiatic", new MapCoordinates(45.76599847433149f, 21.229787748865927f), "peppers.jpeg");
-        Restaurants.restaurant6 = createRestaurant(em, "Kai", "Restaurant", new MapCoordinates(45.76539767938891f, 21.229741338506873f), "peppers.jpeg");
-        Restaurants.restaurant7 = createRestaurant(em, "Riyo Wok & Sushi", "Restaurant cu sushi", new MapCoordinates(45.75818069560485f, 21.22618693471867f), "peppers.jpeg");
-        Restaurants.restaurant8 = createRestaurant(em, "Locanda Del Corso", "Restaurant cu specific italian", new MapCoordinates(45.757565911900386f, 21.226108736296684f), "peppers.jpeg");
-        Restaurants.restaurant9 = createRestaurant(em, "EL Maguey", "Restaurant cu specific mexican", new MapCoordinates(45.756948939366694f, 21.226702872128506f), "peppers.jpeg");
-        Restaurants.restaurant10 = createRestaurant(em, "Jack's Bistro", "Bistro", new MapCoordinates(45.75702284789444f, 21.22776218407671f), "peppers.jpeg");
-        Restaurants.restaurant11 = createRestaurant(em, "Lloyd", "Restaurant", new MapCoordinates(45.753494618837344f, 21.225197264550566f), "peppers.jpeg");
-        Restaurants.restaurant12 = createRestaurant(em, "Pizza Joy - Rooftop", "Pizzerie", new MapCoordinates(45.75471775470736f, 21.22677267968644f), "peppers.jpeg");
-        Restaurants.restaurant13 = createRestaurant(em, "Stradivarius", "Restaurant", new MapCoordinates(45.758141971661296f, 21.228069495069832f), "peppers.jpeg");
-        Restaurants.restaurant14 = createRestaurant(em, "Balkan Bistro Timisoara", "Restaurant cu specific sârbesc", new MapCoordinates(45.757644440918874f, 21.227985209128665f), "peppers.jpeg");
-        Restaurants.restaurant15 = createRestaurant(em, "La Pinochio", "Pizzerie", new MapCoordinates(45.75748703562902f, 21.228653006614596f), "peppers.jpeg");
-        Restaurants.restaurant16 = createRestaurant(em, "Restaurant Merlot", "Restaurant", new MapCoordinates(45.75683409629608f, 21.241930154086894f), "peppers.jpeg");
-        Restaurants.restaurant17 = createRestaurant(em, "MGM Bastion Pub & Food", "Pub", new MapCoordinates(45.75661031447018f, 21.23266479849883f), "peppers.jpeg");
-        Restaurants.restaurant18 = createRestaurant(em, "Rivière Brasseried", "Restaurant", new MapCoordinates(45.74902882628068f, 21.22635875967253f), "peppers.jpeg");
-        Restaurants.restaurant19 = createRestaurant(em, "Grădina Bănaţeană", "Restaurant", new MapCoordinates(45.74886282482162f, 21.22642310733398f), "peppers.jpeg");
-        Restaurants.restaurant20 = createRestaurant(em, "Vineri 15", "Restaurant", new MapCoordinates(45.748279545818626f, 21.230204454678606f), "peppers.jpeg");
-        Restaurants.restaurant21 = createRestaurant(em, "Pizza Napoleon", "Pizzerie", new MapCoordinates(45.749821214818056f, 21.24102784467266f), "peppers.jpeg");
-        Restaurants.restaurant22 = createRestaurant(em, "Restaurant Dinar", "Restaurant", new MapCoordinates(45.752386597450304f, 21.240265404850135f), "peppers.jpeg");
+        Restaurants.restaurant1 = createRestaurant(em, "Peppers", "Restaurant, https://restaurantpepper.ro/meniu/, +40 720 408 250", new MapCoordinates(45.75815142782663f, 21.226471371681047f), "pepper.png");
+        Restaurants.restaurant2 = createRestaurant(em, "Taverna Racilor", "Restaurant cu fructe de mare, https://tavernaracilor.ro/meniu-qr/, 0729 825 528", new MapCoordinates(45.766531005475976f, 21.22982406694069f), "taverna_racilor.png");
+        Restaurants.restaurant3 = createRestaurant(em, "Fenice Palas Timisoara", "Restaurant, https://timisoara.fenicepalas.ro/wp-content/uploads/2020/08/fenice_tm_menu.pdf, 0770 352 352", new MapCoordinates(45.765399415259054f, 21.227762903545052f), "fenice.jpeg");
+        Restaurants.restaurant4 = createRestaurant(em, "C House Milano", "Restaurant, https://chousemilanoromania.ro/meniu/, +40764246873", new MapCoordinates(45.765566408740085f, 21.22761276530506f), "c_house_milano.jpeg");
+        Restaurants.restaurant5 = createRestaurant(em, "Enjoy Sushi", "Restaurant cu specific asiatic, , 0753 824 583", new MapCoordinates(45.76599847433149f, 21.229787748865927f), "enjoy_sushi.jpeg");
+        Restaurants.restaurant6 = createRestaurant(em, "Kai", "Restaurant, https://kai.ro/ro/meniu, +40 787 711 005", new MapCoordinates(45.76539767938891f, 21.229741338506873f), "kai.jpeg");
+        Restaurants.restaurant7 = createRestaurant(em, "Riyo Wok & Sushi", "Restaurant cu sushi, https://riyosushi.ro/meniu/, +40 758 091 091", new MapCoordinates(45.75818069560485f, 21.22618693471867f), "riyo_wok.jpeg");
+        Restaurants.restaurant8 = createRestaurant(em, "Locanda Del Corso", "Restaurant cu specific italian, https://locandadelcorso.ro/ro/meniu, +40 256 282 282", new MapCoordinates(45.757565911900386f, 21.226108736296684f), "locanda_del_corso.jpeg");
+        Restaurants.restaurant9 = createRestaurant(em, "EL Maguey", "Restaurant cu specific mexican, https://elmagueymexican.com/menu/, 0723 436 780", new MapCoordinates(45.756948939366694f, 21.226702872128506f), "el_maguey.jpeg");
+        Restaurants.restaurant10 = createRestaurant(em, "Jack's Bistro", "Bistro, https://qr.bitsandbites.ro/mobile/544Q8AEw5HVWymI8DyQH, 07 432 324 432", new MapCoordinates(45.75702284789444f, 21.22776218407671f), "jacks_bistro.jpeg");
+        Restaurants.restaurant11 = createRestaurant(em, "Lloyd", "Restaurant, https://lloydtimisoara.ro/meniu/, 07 321 321 321", new MapCoordinates(45.753494618837344f, 21.225197264550566f), "lloyd.png");
+        Restaurants.restaurant12 = createRestaurant(em, "Pizza Joy - Rooftop", "Pizzerie, https://online.pizzajoy.ro/#/menu, 0731 364 824", new MapCoordinates(45.75471775470736f, 21.22677267968644f), "pizza_joy.jpeg");
+        Restaurants.restaurant13 = createRestaurant(em, "Stradivarius", "Restaurant, https://www.stradivariustm.ro/?page_id=10, +40 356 452158", new MapCoordinates(45.758141971661296f, 21.228069495069832f), "stradivarius.jpeg");
+        Restaurants.restaurant14 = createRestaurant(em, "Balkan Bistro Timisoara", "Restaurant cu specific sârbesc, https://balkanbistro.ro/meniu/, +40 744 601 456", new MapCoordinates(45.757644440918874f, 21.227985209128665f), "balkan_bistro.jpeg");
+        Restaurants.restaurant15 = createRestaurant(em, "La Pinochio", "Pizzerie, https://clatite-pinochio.ro/meniu/, 200721153855", new MapCoordinates(45.75748703562902f, 21.228653006614596f), "la_pinochio.jpeg");
+        Restaurants.restaurant16 = createRestaurant(em, "Restaurant Merlot", "Restaurant, https://www.restaurant-merlot.ro/files/meniu2023_v02.pdf, +40356177247", new MapCoordinates(45.75683409629608f, 21.241930154086894f), "merlot.jpeg");
+        Restaurants.restaurant17 = createRestaurant(em, "MGM Bastion Pub & Food", "Pub, , 0760 672 387", new MapCoordinates(45.75661031447018f, 21.23266479849883f), "mgm.jpeg");
+        Restaurants.restaurant18 = createRestaurant(em, "Rivière Brasseried", "Restaurant, https://riviere.ro/meniu-restaurant/, 0746 095 573", new MapCoordinates(45.74902882628068f, 21.22635875967253f), "riviere_brasseried.jpeg");
+        Restaurants.restaurant19 = createRestaurant(em, "Grădina Bănaţeană", "Restaurant, https://www.gradinabanateana.ro/meniu/, 0725 725 666", new MapCoordinates(45.74886282482162f, 21.22642310733398f), "gradina_banateana.png");
+        Restaurants.restaurant20 = createRestaurant(em, "Vineri 15", "Restaurant, http://www.vineri15.ro/, 0721 202 821", new MapCoordinates(45.748279545818626f, 21.230204454678606f), "vineri15.jpeg");
+        Restaurants.restaurant21 = createRestaurant(em, "Pizza Napoleon", "Pizzerie, https://pizzavero.ro/produs/pizza-napoletana/, 0256 282 121", new MapCoordinates(45.749821214818056f, 21.24102784467266f), "pizza_napoleon.jpeg");
+        Restaurants.restaurant22 = createRestaurant(em, "Restaurant Dinar", "Restaurant, https://restaurantdinar.ro/wp-content/uploads/2024/03/Dinar-Menu_2024-1.pdf, 0728 116 230", new MapCoordinates(45.752386597450304f, 21.240265404850135f), "dinar.png");
     }
 
     private static Reservation createReservation(EntityManager em, Set<RestaurantTable> tables, LocalDateTime startReservationTime, float reservationDuration, int numberOfPeople, String phoneNumber){
