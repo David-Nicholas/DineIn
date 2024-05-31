@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             />
 
             <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2, mb: 2 }}>
-                <CustomButton text='BOOK NOW' route=''/>
+                <CustomButton text='BOOK NOW' route={`/reservations/${params.id}`}/>
                 <CustomButton text='CALL' route={`tel:${phoneNumber}`}/>
                 <CustomButton text='VIEW MENU' route={menuUrl}/>
             </Box>
