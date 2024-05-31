@@ -25,7 +25,6 @@ export async function makeReservation({reservationDuration, startReservationTime
       phoneNumber: phoneNumber,
     }),
   })
-
   return res.json()
 }
 

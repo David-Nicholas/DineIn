@@ -23,6 +23,10 @@ type Reservation = {
   tables: RestaurantTable[]
 }
 
+type ReservationInvalid = {
+  created: boolean
+}
+
 const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
 
   const [time, setTime] = React.useState<Dayjs | null>(dayjs());
@@ -33,6 +37,7 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
   const [reservationTime, setReservationTime] = React.useState<number>(1);
 
   const [result, setResult] = React.useState<Reservation | null>(null);
+  const [notCreated, setNoCreated] = React.useState<boolean>(false);
 
   const handleChange = (event: SelectChangeEvent) => {
     setReservationTime(JSON.parse(event.target.value));
@@ -48,7 +53,10 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
       restaurantId: restaurant.id,
       phoneNumber: "0770157915",
     })
-
+    if(res.notCreated){
+      setNoCreated(true)
+      return
+    }
     setResult(res)
   }
 
@@ -136,10 +144,14 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
             />
           </Box>
         </Box>
-        {!result ? 
-          <Button onClick={handleOnClick}>
+        {notCreated === true ? <Typography sx={{textAlign: "center"}}>Nu mai exista mese libere</Typography> :
+          !result ? 
+          <Button variant="outlined" sx={{
+            width: "fit-content",
+            margin: "auto",
+          }} onClick={handleOnClick}>
             Reserve
-          </Button> :
+          </Button> : 
           <Box sx={{
             textAlign: "center"
           }}>
