@@ -20,6 +20,8 @@ export type Restaurant = {
   mapCoordinates: MapCoordinates
   restaurantTables?: RestaurantTable[]
   imageUrl: string;
+  menuUrl: string;
+  phoneNumber: string;
 }
 
 export default async function Page() {

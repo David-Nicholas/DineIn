@@ -1,4 +1,4 @@
-function getRequiredVariable(name: string): string {
+export function getRequiredVariable(name: string): string {
     const value = process.env[name];
     if (!value) {
       throw new Error(`${name} env variable is missing`);

@@ -14,31 +14,39 @@ public class Restaurant extends BaseEntity {
     interface Columns{
         String NAME = "NAME";
         String DESCRIPTION = "DESCRIPTION";
+        String MENU_URL = "MENU_URL";
+        String PHONE_NUMBER = "PHONE_NUMBER";
         String COORDINATE_X = "COORDINATE_X";
         String COORDINATE_Y = "COORDINATE_Y";
         String IMAGE_URL = "IMAGE_URL";
     }
 
-    protected Restaurant(){
+    protected Restaurant(){}
 
-    }
-
-    public Restaurant(String name, String description, MapCoordinates mapCoordinates, String imageUrl) {
+    public Restaurant(String name, String description, MapCoordinates mapCoordinates, String imageUrl, String menuUrl, String phoneNumber) {
         this.name = name;
         this.description = description;
         this.mapCoordinates = mapCoordinates;
         this.imageUrl = imageUrl;
+        this.menuUrl = menuUrl;
+        this.phoneNumber = phoneNumber;
         this.restaurantTables = new HashSet<>();
     }
 
     @Column(name = Columns.NAME, nullable = false, unique = true)
     private String name;
 
-    @Column(name = Columns.DESCRIPTION)
+    @Column(name = Columns.DESCRIPTION, nullable = false)
     private String description;
 
-    @Column(name = Columns.IMAGE_URL)
+    @Column(name = Columns.IMAGE_URL, nullable = false)
     private String imageUrl;
+
+    @Column(name = Columns.MENU_URL, nullable = false)
+    private String menuUrl;
+
+    @Column(name = Columns.PHONE_NUMBER, nullable = false)
+    private String phoneNumber;
 
     @Embedded
     @AttributeOverrides({
@@ -59,14 +67,16 @@ public class Restaurant extends BaseEntity {
         restaurantTables.add(table);
     }
 
-    public void updateRestaurant(String name, String description, MapCoordinates mapCoordinates){
-        this.name = name;
-        this.mapCoordinates = mapCoordinates;
-        this.description = description;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public String getMenuUrl() {
+        return menuUrl;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public String getDescription() {
@@ -91,6 +101,8 @@ public class Restaurant extends BaseEntity {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", menuUrl='" + menuUrl + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", mapCoordinates=" + mapCoordinates +
                 ", restaurantTables=" + restaurantTables +
                 '}';

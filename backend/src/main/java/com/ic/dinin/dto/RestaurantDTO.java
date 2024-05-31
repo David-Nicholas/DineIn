@@ -17,4 +17,6 @@ public class RestaurantDTO {
     private String description;
     private MapCoordinates mapCoordinates;
     private Set<RestaurantTableDTO> restaurantTables;
+    private String menuUrl;
+    private String phoneNumber;
 }

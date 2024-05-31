@@ -3,6 +3,7 @@ package com.ic.dinin.controllers;
 import com.ic.dinin.domain.Reservation;
 import com.ic.dinin.dto.ReservationDTO;
 import com.ic.dinin.dto.ReservationInputDTO;
+import com.ic.dinin.dto.ReservationInvalidDTO;
 import com.ic.dinin.services.ReservationService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,12 @@ public class ReservationController {
         int numberOfPeople = reservation.getNumberOfPeople();
         String phoneNumber = reservation.getPhoneNumber();
 
-        Reservation createdReservation = reservationService.createReservation(reservationDuration, startReservationTime, restaurantId, numberOfPeople, phoneNumber);
-        return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(createdReservation, ReservationDTO.class));
+        try {
+            Reservation createdReservation = reservationService.createReservation(reservationDuration, startReservationTime, restaurantId, numberOfPeople, phoneNumber);
+            return ResponseEntity.status(HttpStatus.CREATED).body(modelMapper.map(createdReservation, ReservationDTO.class));
+        } catch (Exception e){
+            ReservationInvalidDTO reservationInvalidDTO = new ReservationInvalidDTO(true);
+            return ResponseEntity.status(HttpStatus.CREATED).body(reservationInvalidDTO);
+        }
     }
 }

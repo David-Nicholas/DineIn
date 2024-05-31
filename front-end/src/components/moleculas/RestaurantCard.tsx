@@ -29,7 +29,7 @@ const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
         </CardContent>
         <CardActions>
           <Box display="flex" justifyContent="center" width="100%">
-            <CustomButton text="BOOK" route=""/>
+            <CustomButton text="BOOK" route={`/reservations/${restaurant.id}`}/>
             <CustomButton text="MORE" route={`/restaurants/${restaurant.id}`} />
           </Box>
         </CardActions>
