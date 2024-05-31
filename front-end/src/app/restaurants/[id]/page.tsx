@@ -12,8 +12,6 @@ async function GetNode(nodeId: string): Promise<Restaurant> {
 export default async function Page({ params }: { params: { id: string } }) {
     const data = await GetNode(params.id);
 
-    const [description, menuUrl, phoneNumber] = data.description.split(', ').map(part => part.trim());
-
     return (
         <Container maxWidth="sm" sx={{ textAlign: 'center', mt: 4 }}>
             <Typography variant="h4" component="h1" gutterBottom>
@@ -35,13 +33,13 @@ export default async function Page({ params }: { params: { id: string } }) {
 
             <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2, mb: 2 }}>
                 <CustomButton text='BOOK NOW' route={`/reservations/${params.id}`}/>
-                <CustomButton text='CALL' route={`tel:${phoneNumber}`}/>
-                <CustomButton text='VIEW MENU' route={menuUrl}/>
+                <CustomButton text='CALL' route={`tel:${data.phoneNumber}`}/>
+                <CustomButton text='VIEW MENU' route={data.menuUrl}/>
             </Box>
 
             <Box sx={{ p: 2, border: '1px solid grey', borderRadius: 2 }}>
                 <Typography variant="body1" align="center">
-                    {description}
+                    {data.description}
                 </Typography>
             </Box>
         </Container>

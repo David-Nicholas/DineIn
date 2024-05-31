@@ -3,24 +3,6 @@ import 'leaflet/dist/leaflet.css';
 import { fetchData } from "@/api/apiClient";
 import dynamic from 'next/dynamic';
 
-export type RestaurantTable = {
-  id: number
-  seats: number
-}
-
-export type MapCoordinates = {
-  coordinateX: number
-  coordinateY: number
-}
-
-export type Restaurant = {
-  id: number
-  name: string
-  description: string
-  mapCoordinates: MapCoordinates
-  restaurantTables?: RestaurantTable[]
-}
-
 const Map = dynamic(() => import("@/components/organisms/Map"), {
   ssr: false,
 });

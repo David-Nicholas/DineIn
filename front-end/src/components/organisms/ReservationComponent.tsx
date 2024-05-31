@@ -47,7 +47,7 @@ const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
       startReservationTime: combinedDateTime.toISOString(),
       numberOfPeople: numberOfPeople,
       restaurantId: restaurant.id,
-      phoneNumber: "0770157915",
+      phoneNumber: phoneNumber,
     })
     if(res.notCreated){
       setNoCreated(true)
