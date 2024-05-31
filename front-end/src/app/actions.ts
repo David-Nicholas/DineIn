@@ -1,6 +1,6 @@
 'use server'
 
-import { getRequiredVariable } from "@/api/apiClient"
+import { fetchData, getRequiredVariable } from "@/api/apiClient"
 
 type MakeReservationProps = {
   reservationDuration: number
@@ -27,4 +27,9 @@ export async function makeReservation({reservationDuration, startReservationTime
   })
 
   return res.json()
+}
+
+export async function getRestaurant({id}:{id: number}) {
+  console.log(`/restaurants/${id}`);
+  return await fetchData(`/restaurants/${id}`)
 }
