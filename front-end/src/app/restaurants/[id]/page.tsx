@@ -34,12 +34,8 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
   };
   
   const handleOnClick = async () => {
-    const year = date.year();
-    const month = date.month() + 1;
-    const day = date.date();
     const combinedDateTime = dayjs(`${date.format("YYYY-MM-DD")}T${time?.format("HH")}:00:00`);
-    // console.log(combinedDateTime.toISOString());
-    
+
     const res = await makeReservation({
       reservationDuration: reservationTime,
       startReservationTime: combinedDateTime.toISOString(),
