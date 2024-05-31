@@ -26,6 +26,7 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
   const [time, setTime] = React.useState<Dayjs | null>(dayjs());
   const [date, setDate] = React.useState<Dayjs>(dayjs());  
 
+  const [phoneNumber, setPhoneNumber] = React.useState<string>("");  
   const [numberOfPeople, setNumberOfPeople] = React.useState<number>(2);  
   const [reservationTime, setReservationTime] = React.useState<number>(1);
 
@@ -50,7 +51,9 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
       <Box sx={{
         display: "flex",
         justifyContent: "center",
-        flexDirection: "column"
+        flexDirection: "column",
+        backgroundColor: "#fff",
+        color: "#000",
       }}>
         <Box sx={{
           display: "flex",
@@ -58,8 +61,6 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
           flexDirection: "column",
         }}>
           <Box sx={{
-            backgroundColor: "#fff",
-            color: "#000",
             width: "fit-content"
           }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -69,8 +70,6 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
             </LocalizationProvider>
           </Box>
           <Box sx={{
-            backgroundColor: "#fff",
-            color: "#000",
             width: "fit-content"
           }}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -78,8 +77,6 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
             </LocalizationProvider>
           </Box>
           <Box sx={{
-            backgroundColor: "#fff",
-            color: "#000",
             width: "fit-content"
           }}>
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -104,8 +101,6 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
             component="form"
             sx={{
               '& > :not(style)': { m: 1, width: '25ch' },
-              backgroundColor: "#fff",
-              color: "#000",
             }}
             noValidate
             autoComplete="off"
@@ -117,6 +112,15 @@ const RestaurantPage = ({params}: RestaurantPageProps) => {
               value={numberOfPeople}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 setNumberOfPeople(JSON.parse(event.target.value));
+              }}
+            />
+            <TextField
+              type="text"
+              id="phone-number"
+              label="PhoneNumber"
+              value={phoneNumber}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                setPhoneNumber(JSON.parse(event.target.value));
               }}
             />
           </Box>
