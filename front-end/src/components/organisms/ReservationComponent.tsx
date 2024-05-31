@@ -23,10 +23,6 @@ type Reservation = {
   tables: RestaurantTable[]
 }
 
-type ReservationInvalid = {
-  created: boolean
-}
-
 const ReservationComponent = ({restaurant}:ReservationComponentProps) => {
 
   const [time, setTime] = React.useState<Dayjs | null>(dayjs());
